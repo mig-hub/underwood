@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+		<!-- =========================== -->
+		<!-- = Load jQuery from Google = -->
+		<!-- =========================== -->
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	  <script type="text/javascript"> google.load("jquery", "1.3.2"); </script>
+		<!-- ================== -->
+		<!-- = Load Underwood = -->
+		<!-- ================== -->
+		<script type="text/javascript" src="plugin.underwood.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				$("textarea").underwood();
+			});
+		</script>
+		<!-- ============================================== -->
+		<!-- = Good to go but just a bit more CSS for fun = -->
+		<!-- ============================================== -->
+		<style type="text/css" media="screen">
+			html { background-color: chartreuse; }
+			iframe.underwood_iframe {
+				width: 350px;
+				margin: 0px;
+				padding: 10px;
+				height: 160px;
+				border: 1px #999 solid;
+				background-color: white;
+			}
+			.underwood_btn { margin-right: 10px; }
+		</style>
+		<title>Underwood jQuery plugin</title>
+	</head>
+	<body>
+		<h1>Underwood.js</h1>
+		<form action="/" method="get" accept-charset="utf-8">
+			<pre>
+
+$(function() {
+  $("textarea").underwood();
+});
+					
+			</pre>
+			<p><textarea cols='40' rows='5' name='default'>This is a field with default settings</textarea></p>
+			<p><textarea cols='40' rows='5' name='naked'>I am ashamed because they left me naked down here.</textarea></p>
+			<p><input type="submit" value="Send &rarr;"></p>
+		</form>
+	</body>
+</html>
