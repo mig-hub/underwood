@@ -95,8 +95,12 @@
 	    $('.underwood_btn_link', tb).click(function(){ 
 	      var href = prompt("URL:", "http://");
 				var target = confirm('Open in a new window? (press cancel to open in the same window)') ? '_blank' : '_self';
-	      if(href)
-	      	create_targeted_link(iframe, href, target);
+	      if (href) {
+					exec_command(iframe, 'CreateLink', href); // Now works on FF
+					var idoc = iframe.contentWindow;
+					var selected = idoc.getSelection();
+					selected.focusNode.parentNode.target = target;
+				}
 	      return false;
 			});
 			$('.underwood_btn_mailto', tb).click(function(){ 
