@@ -23,6 +23,7 @@ This will turn all textareas with class 'simple' into Rich Text Editors with onl
 Here is the list of available buttons:
 
     title
+    paragraph
     bold
     italic
     link
@@ -41,6 +42,7 @@ Here are the CSS classes:
     iframe.underwood_iframe
     .underwood_btn
 	  .underwood_btn_title
+	  .underwood_btn_paragraph
 	  .underwood_btn_bold
 	  .underwood_btn_italic
 	  .underwood_btn_link
