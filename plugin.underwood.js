@@ -5,7 +5,7 @@
 	$.fn.underwood = function(options) {
 		// Settings
 		var defaults = {
-			toolbar: "title bold italic link mailto unlink source"
+			toolbar: "title paragraph bold italic link mailto unlink source"
 		};
 		var settings = $.extend({}, defaults, options);
 		// Init
@@ -89,6 +89,7 @@
 			}
 			
 			$('.underwood_btn_title', tb).click(function(){ exec_command(iframe, "formatblock", '<h3>'); return false; });
+			$('.underwood_btn_paragraph', tb).click(function(){ exec_command(iframe, "formatblock", '<div>'); return false; });
 	    $('.underwood_btn_bold', tb).click(function(){ exec_command(iframe, 'bold'); return false; });
 	    $('.underwood_btn_italic', tb).click(function(){ exec_command(iframe, 'italic'); return false; });
 	    //$('.underwood_btn_unorderedlist', tb).click(function(){ exec_command(iframe, 'insertunorderedlist');return false; });
