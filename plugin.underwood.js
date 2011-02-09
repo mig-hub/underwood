@@ -1,11 +1,12 @@
-// Copyright (c) 2010 Mickael Riga - See MIT_LICENCE for details
+// Copyright (c) 2010-11 Mickael Riga - See MIT_LICENCE for details
 // Version 1
 
 ;(function($) {
 	$.fn.underwood = function(options) {
 		// Settings
 		var defaults = {
-			toolbar: "title paragraph bold italic link mailto unlink source"
+			toolbar: "title paragraph bold italic link mailto unlink source",
+			sanitize: true
 		};
 		var settings = $.extend({}, defaults, options);
 		// Init
@@ -150,13 +151,17 @@
 	    iframe.contentWindow.focus();
     }
 
+		function sanitize_this(s) { // Clean Font tags and style paramters
+			return settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.+[\'\"])/g, '') : s;
+		};
+
 		function disable_design_mode(iframe, on_submit) {
 	    var content = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
 	    if(on_submit==true)
 	    	var textarea = $('<input type="hidden" />');
 	    else
 	    	var textarea = $('<textarea cols="40" rows="10"></textarea>');
-	    textarea.val(content);
+	    textarea.val(sanitize_this(content));
 	    t = textarea.get(0);
 
 	    t.className = "underwood_textarea_copy";

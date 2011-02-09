@@ -12,10 +12,14 @@ When the DOM is ready, just call underwood on selected textareas:
 
 This will turn all textareas into Rich Text Editors.
 
+Underwood is definitely not the right tool for editing pages.
+It is more designed for websites on which the style and structure is quite locked and you just need a textarea on steroids for a piece of text.
+Well suited for a relational CMS.
+
 OPTIONS
 -------
 
-The only option for the moment is toolbar, which is a string with toolbar buttons visible and ordered:
+The first option is toolbar, which is a string with toolbar buttons visible and ordered:
 
 	  $('textarea.simple').underwood({ toolbar: 'bold italic' });
 	
@@ -33,6 +37,16 @@ Here is the list of available buttons:
     source
 
 The default value for toolbar, is all buttons except 'image'.
+
+The other option is sanitize and is a boolean.
+This option is for when you want to avoid any problem when the text is copied from somewhere else and you want the styling to break anything.
+For example on Mac, you can happen to have text with font tags and weird Apple CSS classes.
+This is not always bad but it end up producing bugs on some of my tests, so I'd rather have something.
+It is still a functionality in Beta.
+For the moment it strips out font tags and style parameters.
+Feel free to send your comments on that.
+
+By default, sanitize is set to true.
 
 STYLE THE EDITOR
 ----------------
@@ -58,4 +72,4 @@ if you need more info.
 COPYRIGHT
 ---------
 
-Copyright (c) 2010 Mickael Riga - See MIT_LICENCE for details
+Copyright (c) 2010-11 Mickael Riga - See MIT_LICENCE for details
