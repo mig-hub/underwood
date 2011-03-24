@@ -46,6 +46,8 @@ It is still a functionality in Beta.
 For the moment it strips out font tags and style parameters.
 Feel free to send your comments on that.
 
+  $('textarea.simple').underwood({ sanitize: false });
+
 By default, sanitize is set to true.
 
 STYLE THE EDITOR

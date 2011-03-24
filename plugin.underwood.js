@@ -152,7 +152,7 @@
     }
 
 		function sanitize_this(s) { // Clean Font tags and style paramters
-			return settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.+[\'\"])/g, '') : s;
+			return settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.[^'"]*['"])/g, '') : s;
 		};
 
 		function disable_design_mode(iframe, on_submit) {
