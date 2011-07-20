@@ -1,12 +1,15 @@
 // Copyright (c) 2010-11 Mickael Riga - See MIT_LICENCE for details
-// Version 1
+// Version 0.2
 
 ;(function($) {
 	$.fn.underwood = function(options) {
 		// Settings
 		var defaults = {
 			toolbar: "title paragraph bold italic link mailto unlink source",
-			sanitize: true
+			title_block: '<h3>',
+			paragraph_block: '<p>',
+			sanitize: true,
+			css_href: null
 		};
 		var settings = $.extend({}, defaults, options);
 		// Init
@@ -33,15 +36,16 @@
 	    if(textarea.attr('name'))
 	    	iframe.rel = textarea.attr('name');
 	    textarea.after(iframe);
-	    var css = "\
-			<style type='text/css'>\
-			.underwood_frame_body {font-family:sans-serif;font-size:12px;margin:0;width:100%;height:100%;}\
-			.underwood_frame_body p {border:1px #DDD solid;padding:2px;}\
-			.underwood_textarea_copy {width:350px;margin:0;padding:0;height:160px;border:1px #999 solid;clear:both;}\
-			.underwood_toolbar {overflow:hidden;}\
-			.underwood_toolbar a, .underwood_toolbar a img {border:0;}\
-			.underwood_toolbar p {float:left;margin:0;padding-right:5px;}\
-			</style>";
+	    var css;
+			if (settings.css_href) {
+				css = "<link rel='stylesheet' href='"+settings.css_href+"' type='text/css' media='screen' charset='utf-8' />"
+			} else {
+				css = "\
+				<style type='text/css'>\
+				.underwood_frame_body {font-family:sans-serif;font-size:12px;margin:0;padding:10px;}\
+				.underwood_frame_body p {border:1px #DDD solid;padding:2px;}\
+				</style>";
+			}
 	    var content = textarea.val();
 	    // Mozilla need this to display caret
 	    if($.trim(content)=='')
@@ -89,8 +93,8 @@
 				tb.append($(btn));
 			}
 			
-			$('.underwood_btn_title', tb).click(function(){ exec_command(iframe, "formatblock", '<h3>'); return false; });
-			$('.underwood_btn_paragraph', tb).click(function(){ exec_command(iframe, "formatblock", '<div>'); return false; });
+			$('.underwood_btn_title', tb).click(function(){ exec_command(iframe, "formatblock", settings.title_block); return false; });
+			$('.underwood_btn_paragraph', tb).click(function(){ exec_command(iframe, "formatblock", settings.paragraph_block); return false; });
 	    $('.underwood_btn_bold', tb).click(function(){ exec_command(iframe, 'bold'); return false; });
 	    $('.underwood_btn_italic', tb).click(function(){ exec_command(iframe, 'italic'); return false; });
 	    //$('.underwood_btn_unorderedlist', tb).click(function(){ exec_command(iframe, 'insertunorderedlist');return false; });

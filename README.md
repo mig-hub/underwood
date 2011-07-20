@@ -1,5 +1,8 @@
 "My typewriter was my machine gun and it was loaded" - Charles Bukowski
 
+UNDERWOOD.js
+============
+
 WHAT IT IS
 ----------
 
@@ -19,7 +22,7 @@ Well suited for a relational CMS.
 OPTIONS
 -------
 
-The first option is toolbar, which is a string with toolbar buttons visible and ordered:
+The first option is `toolbar`, which is a string with toolbar buttons visible and ordered:
 
 	  $('textarea.simple').underwood({ toolbar: 'bold italic' });
 	
@@ -38,7 +41,13 @@ Here is the list of available buttons:
 
 The default value for toolbar, is all buttons except 'image'.
 
-The other option is sanitize and is a boolean.
+The second option is `css_href`. It is simply the location for the CSS inside the iFrame (editable area).
+If it is null (default), some generic CSS is used instead.
+
+You can also decide what tag is used for a `title_block` and for a `paragraph_block`.
+These are respectively defaulted to `'<h3>'` and `'<p>'`.
+
+The last option is `sanitize` and is a boolean.
 This option is for when you want to avoid any problem when the text is copied from somewhere else and you want the styling to break anything.
 For example on Mac, you can happen to have text with font tags and weird Apple CSS classes.
 This is not always bad but it end up producing bugs on some of my tests, so I'd rather have something.
@@ -56,6 +65,7 @@ STYLE THE EDITOR
 Here are the CSS classes:
 
     iframe.underwood_iframe
+    .underwood_toolbar
     .underwood_btn
 	  .underwood_btn_title
 	  .underwood_btn_paragraph
@@ -67,11 +77,12 @@ Here are the CSS classes:
 	  .underwood_btn_image
 	  .underwood_btn_source
 	  .underwood_btn_back
+    .underwood_textarea_copy
   
-This is supposed to be self-explainatory but have a look at the example, or drop me a line 
+This is supposed to be self-explanatory but have a look at the example, or drop me a line 
 if you need more info.
 
 COPYRIGHT
 ---------
 
-Copyright (c) 2010-11 Mickael Riga - See MIT_LICENCE for details
+Copyright (c) 2010-11 Mickael Riga - See MIT_LICENSE for details
