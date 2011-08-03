@@ -161,6 +161,7 @@
 
 		function disable_design_mode(iframe, on_submit) {
 	    var content = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
+			if (content=='<br>') content = ''; // Blank gives a BR for some strange reason
 	    if(on_submit==true)
 	    	var textarea = $('<input type="hidden" />');
 	    else
