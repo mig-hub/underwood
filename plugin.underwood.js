@@ -1,5 +1,5 @@
 // Copyright (c) 2010-11 Mickael Riga - See MIT_LICENCE for details
-// Version 0.2
+// Version 0.2.2
 
 ;(function($) {
 	$.fn.underwood = function(options) {
@@ -156,12 +156,12 @@
     }
 
 		function sanitize_this(s) { // Clean Font tags and style paramters
-			return settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.[^'"]*['"])/g, '') : s;
+			s = settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.[^'"]*['"])/g, '') : s;
+			return s.match(/(>|^)[^<]+(<|$)/) ? s : ''; // removes more than just remaining <br>
 		};
 
 		function disable_design_mode(iframe, on_submit) {
 	    var content = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
-			if (content=='<br>') content = ''; // Blank gives a BR for some strange reason
 	    if(on_submit==true)
 	    	var textarea = $('<input type="hidden" />');
 	    else

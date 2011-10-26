@@ -59,6 +59,10 @@ Feel free to send your comments on that.
 
 By default, sanitize is set to true.
 
+If you have a problem making some tags like bold in a particular browser,
+it is probably better to set sanitize to false because it might be that some
+browsers creates bold with `style` parameter.
+
 STYLE THE EDITOR
 ----------------
 
