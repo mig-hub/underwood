@@ -157,7 +157,7 @@
 
 		function sanitize_this(s) { // Clean Font tags and style paramters
 			s = settings.sanitize ? s.replace(/(<\/?font[^>]*>|style=.[^'"]*['"])/g, '') : s;
-			return (s.match(/(>|^)[^<]+(<|$)/) || s.match(/<(object|iframe)/)) ? s : ''; // removes more than just remaining <br>
+			return (s.match(/(>|^)[^<]+(<|$)/) || s.match(/<(object|iframe|img)/)) ? s : ''; // removes more than just remaining <br>
 		};
 
 		function disable_design_mode(iframe, on_submit) {
